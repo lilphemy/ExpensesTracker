@@ -9,10 +9,14 @@ type transPecifics = [
 
 type reducerType = {type: "DELETE"} | {type: "INCREAMENT"} | {type: 'DECREAMENT'}
 
-const reduceraction = (state: transPecifics, action: reducerType) => {
+interface reducerAction {
+  type: string,
+  payload?: any,
+}
+
+const reduceraction = (state: transPecifics, action: reducerAction) => {
   switch (action.type) {
-    case "DELETE":
-        return undefined
+  
     default:
         return state
   }

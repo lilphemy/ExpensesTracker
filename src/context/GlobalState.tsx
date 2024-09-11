@@ -17,7 +17,6 @@ type transPecifics = [
     {id: number, text: string, amount: number},
 ]
 
-
 export const initialState: callData = {
     transactions: [
         { id: 1, text: 'Flower', amount: -20 },
@@ -30,7 +29,7 @@ export const initialState: callData = {
 
 export const GlobalContext = createContext(initialState)
 
-const GlobalProvider = ({children} : {children: any}) => {
+const GlobalProvider = ({children} : {children: React.ReactNode}) => {
 
     const [state, dispatch] = useReducer(ActionReducer, initialState)
 

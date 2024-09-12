@@ -13,6 +13,7 @@ function App() {
     <GlobalProvider>
       <Header />
       <Balance />
+      <IncomeExpenses />
       <History/>
       <NewTransactions />
     </GlobalProvider>

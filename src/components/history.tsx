@@ -10,7 +10,7 @@ interface dataUnit {
 
 const History = () => {
     const dataContext = useContext(GlobalContext)
-    console.log(dataContext)
+    //console.log(dataContext)
 
     return (
         <Fragment>

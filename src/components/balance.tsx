@@ -1,7 +1,17 @@
-import React,{useState} from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { GlobalContext } from '../context/GlobalState'
+
 
 const Balance = () => {
-    const [balValue, setBalValue] = useState(0.00)
+  const { transactions } = useContext(GlobalContext);
+  const [balValue, setBalValue] = useState(0.00)
+
+  useEffect(() => {
+    const amount = transactions.map((unit, id) => unit.amount)
+    const balTotals = amount.reduce((prev, curr) => prev += curr)
+    setBalValue(balTotals)
+  }, [balValue])
+
   return (
     <div>
       <h2>Your Balance</h2>

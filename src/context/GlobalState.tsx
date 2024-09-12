@@ -28,6 +28,7 @@ export const initialState: callData = {
 
 
 export const GlobalContext = createContext(initialState)
+export const dispatch = createContext
 
 const GlobalProvider = ({children} : {children: React.ReactNode}) => {
 

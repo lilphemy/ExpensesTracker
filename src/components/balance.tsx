@@ -15,7 +15,7 @@ const Balance = () => {
   return (
     <div>
       <h2>Your Balance</h2>
-      <p>{`$ ${balValue}`}</p>
+      <p>{`$ ${balValue.toFixed(2)}`}</p>
     </div>
   )
 }

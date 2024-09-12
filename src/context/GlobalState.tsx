@@ -7,15 +7,9 @@ interface callData {
         {id: number, text: string, amount: number},
         {id: number, text: string, amount: number},
         {id: number, text: string, amount: number},
-    ]
+    ],
+    
 }
-
-type transPecifics = [
-    {id: number, text: string, amount: number},
-    {id: number, text: string, amount: number},
-    {id: number, text: string, amount: number},
-    {id: number, text: string, amount: number},
-]
 
 export const initialState: callData = {
     transactions: [
@@ -28,11 +22,16 @@ export const initialState: callData = {
 
 
 export const GlobalContext = createContext(initialState)
-export const dispatch = createContext
 
 const GlobalProvider = ({children} : {children: React.ReactNode}) => {
 
     const [state, dispatch] = useReducer(ActionReducer, initialState)
+
+    // function for delete dispatch
+
+    function deleteTrans (id: number) {
+        dispatch({type: "DELETE_TRANSACTION", payload: id})
+    }
 
     return(
         <GlobalContext.Provider value = {{transactions: state.transactions}}>

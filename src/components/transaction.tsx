@@ -8,9 +8,10 @@ interface dataUnit {
 }
 
 const Transaction = ({transData}: {transData: dataUnit}) => {
-    const {id, text, amount} = transData
+    const {text, amount} = transData
+    const sign = amount < 0? "-" : "+";
   return (
-    <li>{text} <span>{amount}</span></li>
+    <li>{text} <span>{sign}{Math.abs(amount)}</span></li>
   )
 }
 

@@ -1,6 +1,4 @@
 import React, { Fragment, useContext, useState } from 'react';
-import { FontAwesomeIcon } from '@fortAwesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons/faCoffee';
 import { GlobalContext } from '../context/GlobalState';
 import Transaction from './transaction'
 
@@ -11,8 +9,8 @@ interface dataUnit {
 }
 
 const History = () => {
-    const dataContext = useContext(GlobalContext)
-    const [bool, setBool] = useState<boolean>(false)
+    const {transactions} = useContext(GlobalContext)
+    const [bool, setBool] = useState<boolean>(true)
     //console.log(dataContext)
 
     return (
@@ -21,11 +19,10 @@ const History = () => {
                 <div>
                     <h3>History</h3>
                     <ul>
-                        {dataContext.transactions.map((singData) => {
+                        {transactions.map((singData) => {
                             const {id} = singData
                             return (
                                 <article key={id}>
-                                    {bool && <FontAwesomeIcon icon={faCoffee}/>}
                                     <Transaction transData={singData}/>
                                 </article>
                             )

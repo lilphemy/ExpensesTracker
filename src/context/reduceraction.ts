@@ -24,8 +24,11 @@ interface reducerAction {
 const reduceraction = (state: callData, action: reducerAction) => {
 
   switch (action.type) {
-    case "DELETE":
-      
+    case "DELETE_TRANSACTION":
+      return {
+        ...state,
+        transactions: state.transactions.filter(value => value.id != action.payload)
+      }
     default:
         return state
   }

@@ -8,8 +8,9 @@ interface callData {
         {id: number, text: string, amount: number},
         {id: number, text: string, amount: number},
     ],
-    
+    deleteTrans?: (cap: number) => {id:number, text: string, amount: number}[]
 }
+
 
 export const initialState: callData = {
     transactions: [
@@ -34,7 +35,7 @@ const GlobalProvider = ({children} : {children: React.ReactNode}) => {
     }
 
     return(
-        <GlobalContext.Provider value = {{transactions: state.transactions}}>
+        <GlobalContext.Provider value = {{transactions: state.transactions, deleteTrans}}>
             {children}
         </GlobalContext.Provider>
     )

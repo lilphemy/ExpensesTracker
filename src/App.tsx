@@ -8,14 +8,15 @@ import GlobalProvider from './context/GlobalState'
 
 function App() {
 
-
   return (
     <GlobalProvider>
-      <Header />
-      <Balance />
-      <IncomeExpenses />
-      <History/>
-      <NewTransactions />
+      <main className = ' w-1/2 m-auto p-0 m-0 box-border text-center border-4 border-sky-500'>
+        <Header />
+        <Balance />
+        <IncomeExpenses />
+        <History />
+        <NewTransactions />
+      </main>
     </GlobalProvider>
   )
 }

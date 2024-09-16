@@ -15,13 +15,13 @@ function IncomeExpenses () {
 
     return(
         <Fragment>
-            <section>
-                <article>
-                    <h2>INCOME</h2>
+            <section className = 'm-auto m-0 flex flex-row justify-center items-even w-3/4 h-32 bg-slate-200 p-3'>
+                <article className="justify-self-center text-center outline outline-3">
+                    <h2 className = "font-bold text-lg p-3">INCOME</h2>
                     <p>{`$ ${money.income}`}</p>
                 </article>
-                <article>
-                    <h2>EXPENSES</h2>
+                <article className="justify-self-center text-center outline outline-3">
+                    <h2 className = "font-bold text-lg p-3">EXPENSES</h2>
                     <p>{`$ ${money.expenses}`}</p>
                 </article>
             </section>

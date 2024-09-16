@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { GlobalContext } from '../context/GlobalState'
 
 
@@ -7,16 +7,16 @@ const Balance = () => {
   const [balValue, setBalValue] = useState(0.00)
 
   useEffect(() => {
-    const amount = transactions.map((unit, id) => unit.amount)
+    const amount = transactions.map((unit) => unit.amount)
     const balTotals = amount.reduce((prev, curr) => prev += curr)
     setBalValue(balTotals)
   }, [balValue])
 
   return (
-    <div>
+    <article className = 'w-full text-left font-sarif font-bold pl-3 text-3xl py-8'>
       <h2>Your Balance</h2>
       <p>{`$ ${balValue.toFixed(2)}`}</p>
-    </div>
+    </article>
   )
 }
 

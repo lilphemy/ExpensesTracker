@@ -11,13 +11,19 @@ interface dataUnit {
 }
 
 const Transaction = ({transData}: {transData: dataUnit}) => {
-  const [bool, setBool] = useState(true);
+  const [bool, setBool] = useState(false);
   const {deleteTrans} = useContext(GlobalContext)
-  const {text, amount} = transData
+  const {text, amount} = transData;
   const sign = amount < 0? "-" : "+";
+
+  function toggleBool () {
+    setBool((prev) => ! prev)
+  }
+
+
   return (
     <Fragment>
-      {bool && <FontAwesomeIcon onClick = {() => deleteTrans?.(transData.id)} icon={faCoffee}/>}
+      {bool && <FontAwesomeIcon onMouseLeave={toggleBool} onMouseEnter={toggleBool} onClick = {() => deleteTrans?.(transData.id)} icon={faCoffee}/>}
       <li>{text} <span>{sign}{Math.abs(amount)}</span></li>
     </Fragment>
   )

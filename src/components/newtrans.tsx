@@ -1,5 +1,5 @@
-import React, { useState, useEffect, Fragment } from "react";
-
+import React, { useState, useEffect, useContext, Fragment } from "react";
+import { GlobalContext } from "../context/GlobalState";
 
 type dataObj = {
     id: string,
@@ -7,8 +7,9 @@ type dataObj = {
     amount: string,
 }
 const NewTransactions = () => {
-    const [detail, setDetail] = useState ({ id: '', text: '', amount: ''})
+    const [detail, setDetail] = useState ({ id: 0, text: '', amount: 0})
     const [history, setHistory] = useState<dataObj[]>([])
+    const {addTransaction} = useContext(GlobalContext)
 
     function handleInput (e: React.ChangeEvent<HTMLInputElement> ) {
         const name = e.target.name;
@@ -19,10 +20,8 @@ const NewTransactions = () => {
 
     const handleSubmit= function (e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        const newExpen = {...detail, id: new Date().getMilliseconds().toString(),}
-        setHistory([...history, newExpen])
-        setDetail({id: '', text: '', amount: '',})
-        console.log(history)
+        const newExpen = {...detail, id: new Date().getMilliseconds()}
+        addTransaction?.(newExpen)
     }
 
     return (
@@ -31,7 +30,7 @@ const NewTransactions = () => {
                 <div>
                     <h3>Add new Transaction</h3>
                 </div>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={() => handleSubmit}>
                     <ul>
                         <li>
                             <label htmlFor="text">Text</label>

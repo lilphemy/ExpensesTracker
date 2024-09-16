@@ -1,16 +1,33 @@
 import React, {createContext, Fragment, useReducer} from 'react'
 import ActionReducer from "./reduceraction"
 
-interface callData {
-    transactions: [
-        {id: number, text: string, amount: number},
-        {id: number, text: string, amount: number},
-        {id: number, text: string, amount: number},
-        {id: number, text: string, amount: number},
-    ],
-    deleteTrans?: (cap: number) => {id:number, text: string, amount: number}[]
+type transPecifics = [
+    {id: number, text: string, amount: number},
+    {id: number, text: string, amount: number},
+    {id: number, text: string, amount: number},
+    {id: number, text: string, amount: number},
+]
+
+interface dataUnit {
+    id: number,
+    text: string,
+    amount: number
 }
 
+interface callData {
+    transactions: ({id: number, text: string, amount: number})[]
+    deleteTrans?: (cap: number) => void
+    addTransaction?: (cap: dataUnit) => void
+}
+
+// interface callData {
+//     transactions: [
+//         {id: number, text: string, amount: number},
+//         {id: number, text: string, amount: number},
+//         {id: number, text: string, amount: number},
+//         {id: number, text: string, amount: number},
+//     ]
+// }
 
 export const initialState: callData = {
     transactions: [
@@ -20,7 +37,6 @@ export const initialState: callData = {
         { id: 4, text: 'Camera', amount: 150 }
     ]
 }
-
 
 export const GlobalContext = createContext(initialState)
 
@@ -34,8 +50,12 @@ const GlobalProvider = ({children} : {children: React.ReactNode}) => {
         dispatch({type: "DELETE_TRANSACTION", payload: id})
     }
 
+    function addTransaction (loadData: dataUnit) {
+        dispatch({type: 'ADD_TRANSACTION', payload: loadData})
+    }
+
     return(
-        <GlobalContext.Provider value = {{transactions: state.transactions, deleteTrans}}>
+        <GlobalContext.Provider value = {{transactions: state.transactions, deleteTrans, addTransaction}}>
             {children}
         </GlobalContext.Provider>
     )

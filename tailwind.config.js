@@ -7,6 +7,7 @@ export default {
     "./src/components/incomeandexp.tsx",
     "./src/components/history.tsx",
     "./src/components/transaction.tsx",
+    "./src/components/newtrans.tsx",
   ],
   theme: {
     extend: {},

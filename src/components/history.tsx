@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState } from 'react';
+import { Fragment, useContext, useState } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 import Transaction from './transaction'
 
@@ -15,14 +15,14 @@ const History = () => {
 
     return (
         <Fragment>
-            <section>
-                <div>
-                    <h3>History</h3>
+            <section className='my-5'>
+                <div className='w-full text-center '>
+                    <h3 className = 'w-full text-left font-normal border-b border-base-300 p-2 my-3 font-sans font-bold text-lg'>History</h3>
                     <ul>
                         {transactions.map((singData) => {
                             const {id} = singData
                             return (
-                                <article key={id}>
+                                <article key={id} className='flex flex-row w-full my-5'>
                                     <Transaction transData={singData}/>
                                 </article>
                             )

@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Header from './components/Header'
 import Balance from './components/balance'
 import IncomeExpenses from './components/incomeandexp'
@@ -10,7 +9,7 @@ function App() {
 
   return (
     <GlobalProvider>
-      <main className = ' w-1/2 m-auto p-0 m-0 box-border text-center border-4 border-sky-500'>
+      <main className = 'w-80 m-auto p-0 m-0 mt-10 box-border text-center'>
         <Header />
         <Balance />
         <IncomeExpenses />

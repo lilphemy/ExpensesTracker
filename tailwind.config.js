@@ -5,6 +5,8 @@ export default {
     "./src/components/Header.tsx",
     "./src/components/balance.tsx",
     "./src/components/incomeandexp.tsx",
+    "./src/components/history.tsx",
+    "./src/components/transaction.tsx",
   ],
   theme: {
     extend: {},

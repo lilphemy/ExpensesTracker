@@ -13,7 +13,7 @@ const Balance = () => {
   }, [balValue])
 
   return (
-    <article className = 'w-full text-left font-sarif font-bold pl-3 text-3xl py-8'>
+    <article className = 'w-full text-left font-sarif font-bold text-3xl py-4'>
       <h2>Your Balance</h2>
       <p>{`$ ${balValue.toFixed(2)}`}</p>
     </article>

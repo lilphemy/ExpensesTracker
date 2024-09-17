@@ -1,30 +1,31 @@
-import React, {Fragment, useContext, useState} from 'react'
+import React, { Fragment, useContext, useState } from 'react'
 import { FontAwesomeIcon } from '@fortAwesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import { GlobalContext } from '../context/GlobalState'
 
 
 interface dataUnit {
-    id: number,
-    text: string,
-    amount: number
+  id: number,
+  text: string,
+  amount: number
 }
 
-const Transaction = ({transData}: {transData: dataUnit}) => {
+const Transaction = ({ transData }: { transData: dataUnit }) => {
   const [bool, setBool] = useState(false);
-  const {deleteTrans} = useContext(GlobalContext)
-  const {text, amount} = transData;
-  const sign = amount < 0? "-" : "+";
+  const { deleteTrans } = useContext(GlobalContext)
+  const { text, amount } = transData;
+  const sign = amount < 0 ? "-" : "+";
 
-  function toggleBool () {
-    setBool((prev) => ! prev)
+  function toggleBool() {
+    setBool((prev) => !prev)
   }
-
 
   return (
     <Fragment>
-      {bool && <FontAwesomeIcon onMouseLeave={toggleBool} onMouseEnter={toggleBool} onClick = {() => deleteTrans?.(transData.id)} icon={faCoffee}/>}
-      <li>{text} <span>{sign}{Math.abs(amount)}</span></li>
+      {bool && <div style={{width: "10%", height: "100%", textAlign: "center", padding: '5px', marginLeft: "5px", border: "2px 2px solid green"}}><FontAwesomeIcon onClick={() => deleteTrans?.(transData.id)} icon={faCoffee} style={{paddingLeft: "10px", height: "100%", width: "100%", color: "tomato", textAlign: "center"}} /></div>}
+      <div className='w-full border border-neutral-400 text-left'>
+        <li className='w-full  p-1.5' onMouseLeave={toggleBool} onMouseEnter={toggleBool}>{text} <span>{sign}{Math.abs(amount)}</span></li>
+      </div>
     </Fragment>
   )
 }

@@ -30,7 +30,6 @@ const reduceraction = (state: callData, action: reducerAction):callData => {
         transactions: state.transactions.filter(value => value.id != action.payload)
       }
       case 'ADD_TRANSACTION':
-      //still wondering why the code below in this block is causing an error in my source code.
       return {
         ...state,
         transactions: [{...action.payload, id: Number(new Date())}, ...state.transactions]

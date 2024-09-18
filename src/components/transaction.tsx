@@ -22,7 +22,7 @@ const Transaction = ({ transData }: { transData: dataUnit }) => {
 
   return (
     <Fragment>
-      {bool && <div style={{width: "10%", height: "100%", textAlign: "center", padding: '5px', marginLeft: "5px", border: "2px 2px solid green"}}><FontAwesomeIcon onClick={() => deleteTrans?.(transData.id)} icon={faCoffee} style={{paddingLeft: "10px", height: "100%", width: "100%", color: "tomato", textAlign: "center"}} /></div>}
+      {bool && <FontAwesomeIcon onClick={() => deleteTrans?.(transData.id)} icon={faCoffee} style={{height: "20px", width: "80px", color: "tomato", textAlign: "center", padding: "0"}} />}
       <div className='w-full border border-neutral-400 text-left'>
         <li className='w-full  p-1.5' onMouseLeave={toggleBool} onMouseEnter={toggleBool}>{text} <span>{sign}{Math.abs(amount)}</span></li>
       </div>
@@ -31,3 +31,5 @@ const Transaction = ({ transData }: { transData: dataUnit }) => {
 }
 
 export default Transaction
+
+//<div style={{width: "10%", height: "100%", textAlign: "center", padding: '5px', marginLeft: "5px", border: "2px 2px solid green"}}></div>

@@ -10,8 +10,6 @@ import Transaction from './transaction'
 
 const History = () => {
     const {transactions} = useContext(GlobalContext);
-    //console.log(dataContext)
-
     return (
         <Fragment>
             <section className='my-5'>

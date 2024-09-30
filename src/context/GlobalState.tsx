@@ -1,12 +1,5 @@
-import React, {createContext, Fragment, useReducer} from 'react'
+import React, {createContext, useReducer} from 'react'
 import ActionReducer from "./reduceraction"
-
-type transPecifics = [
-    {id: number, text: string, amount: number},
-    {id: number, text: string, amount: number},
-    {id: number, text: string, amount: number},
-    {id: number, text: string, amount: number},
-]
 
 interface dataUnit {
     id: number,

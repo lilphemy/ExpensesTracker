@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState } from 'react'
+import { Fragment, useContext, useState } from 'react'
 import { FontAwesomeIcon } from '@fortAwesome/react-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { GlobalContext } from '../context/GlobalState'

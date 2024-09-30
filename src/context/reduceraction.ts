@@ -1,17 +1,9 @@
-import React from 'react'
 
 interface dataUnit {
   id: number,
   text: string,
   amount: number
 }
-
-type transPecifics = [
-    {id: number, text: string, amount: number},
-    {id: number, text: string, amount: number},
-    {id: number, text: string, amount: number},
-    {id: number, text: string, amount: number},
-]
 
 type callData = {
   transactions: ({ id: number; text: string; amount: number})[]

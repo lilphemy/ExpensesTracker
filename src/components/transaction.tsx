@@ -24,7 +24,7 @@ const Transaction = ({ transData }: { transData: dataUnit }) => {
     <Fragment>
       {bool && <FontAwesomeIcon onClick={() => deleteTrans?.(transData.id)} icon={faCircleXmark} style={{height: "20px", width: "80px", color: "tomato", textAlign: "center", padding: "0"}} />}
       <div className='w-full border border-neutral-400 text-left'>
-        <li className='w-full  p-1.5 flex flex-row justify-between' onMouseLeave={toggleBool} onMouseEnter={toggleBool}><p>{text}</p> <span className=''>{sign}{Math.abs(amount)}</span></li>
+        <li className='w-full  p-1 flex flex-row justify-between' onMouseLeave={toggleBool} onMouseEnter={toggleBool}><p>{text}</p> <span className=''>{sign}{Math.abs(amount)}</span></li>
       </div>
     </Fragment>
   )

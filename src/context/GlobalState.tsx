@@ -8,19 +8,10 @@ interface dataUnit {
 }
 
 interface callData {
-    transactions: ({id: number, text: string, amount: number})[]
-    deleteTrans?: (cap: number) => void
+    transactions: ({id: number, text: string, amount: number})[],
+    deleteTrans?: (cap: number) => void,
     addTransaction?: (cap: dataUnit) => void
 }
-
-// interface callData {
-//     transactions: [
-//         {id: number, text: string, amount: number},
-//         {id: number, text: string, amount: number},
-//         {id: number, text: string, amount: number},
-//         {id: number, text: string, amount: number},
-//     ]
-// }
 
 export const initialState: callData = {
     transactions: [
@@ -28,7 +19,7 @@ export const initialState: callData = {
         { id: 2, text: 'Salary', amount: 300 },
         { id: 3, text: 'Book', amount: -10 },
         { id: 4, text: 'Camera', amount: 150 }
-    ]
+    ],
 }
 
 export const GlobalContext = createContext(initialState)

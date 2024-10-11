@@ -32,3 +32,4 @@ const reduceraction = (state: callData, action: reducerAction):callData => {
 }
 
 export default reduceraction
+

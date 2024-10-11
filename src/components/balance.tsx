@@ -8,7 +8,12 @@ const Balance = () => {
 
   useEffect(() => {
     const amount = transactions.map((unit) => unit.amount)
-    const balTotals = amount.length > 0 ? amount.reduce((prev, curr) => prev += curr) : 0
+    const balTotals = amount.reduce((prev, curr) => {
+      if(prev && curr) {
+        return prev += curr;
+      }
+      return prev | curr
+    })
     setBalValue(balTotals)
   }, [transactions])
 

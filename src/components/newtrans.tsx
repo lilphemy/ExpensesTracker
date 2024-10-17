@@ -16,6 +16,7 @@ const NewTransactions = () => {
         e.preventDefault();
         const newExpen = {...detail, amount: +detail.amount, id: new Date().getMilliseconds()}
         addTransaction?.(newExpen)
+        setDetail({...detail, text: '', amount: 0})
     }
 
     return (
